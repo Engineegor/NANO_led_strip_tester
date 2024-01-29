@@ -1,9 +1,24 @@
-#define STRIP_TASK_PERIOD	700
+#include <Arduino.h>
+#include <FastLED.h>
+
+#define LED_PIN			5
+#define LED_NUM			100
+#define LED_TYPE		WS2812
+#define COLOR_ORDER		GRB
+#define DEFAULT_FPS		3
+#define	BUTTON_PIN		9
+#define BUTTONS_PERIOD	20
 
 void setup() {
-	STRIP_SETUP();
+	LEDS_SETUP();
+	BUTTONS_SETUP();
+	pinMode(13, OUTPUT);
+	Serial.begin(38400);
+
+	Serial.println("\n Let's go!");
 }
 
 void loop() {
-	STRIP_TASK(STRIP_TASK_PERIOD);
+	LEDS_TASK();
+	BUTTONS_TASK();
 }
