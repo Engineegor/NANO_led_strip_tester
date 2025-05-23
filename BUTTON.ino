@@ -1,3 +1,5 @@
+extern bool static_switch;
+
 void BUTTONS_SETUP() {
 	pinMode(BUTTON_PIN, INPUT_PULLUP);
 }
